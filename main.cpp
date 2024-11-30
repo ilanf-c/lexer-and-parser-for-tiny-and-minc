@@ -36,7 +36,10 @@ public:
         this->states.push_back(states.size());
         return states.size() - 1;
     }
-    void addInput(string input) { this->input.push_back(input); }
+    void addInput(string input) {
+        if (find(this->input.begin(), this->input.end(), input) == this->input.end())
+            this->input.push_back(input);
+    }
     void addTransition(int from, string input, int to) {
         transition[from][input].push_back(to);
     }
@@ -521,7 +524,7 @@ public:
 };
 
 int main() {
-    Re2NFA *re2nfa = new Re2NFA("a|b*c", {});
+    Re2NFA *re2nfa = new Re2NFA("letter(letter|digit)*", {"letter", "digit"});
     NFA2DFA *nfa2dfa = new NFA2DFA(re2nfa);
     minDFA *mDFA = new minDFA(nfa2dfa);
     mDFA->minimize();

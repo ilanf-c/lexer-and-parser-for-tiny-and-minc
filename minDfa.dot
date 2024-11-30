@@ -2,9 +2,7 @@ digraph {
     rankdir=LR;
     node [shape=circle];
     1 [shape=doublecircle];
-    2 -> 2 [label="b"];
-    2 -> 1 [label="c"];
-    3 -> 1 [label="a"];
-    3 -> 2 [label="b"];
-    3 -> 1 [label="c"];
+    1 -> 1 [label="letter"];
+    1 -> 1 [label="digit"];
+    2 -> 1 [label="letter"];
 }
